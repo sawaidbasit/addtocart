@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CartContext } from './Cart'
 
 const Item = ({ id,description, title, img, price, amount}) => {
+    const {removeItem} = useContext(CartContext)
+
+
   return (
    <>
      <div className="items-info">
