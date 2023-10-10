@@ -6,7 +6,30 @@ import { CartContext } from './Cart';
 
 
 const ContextCart = () => {
-    const {item} = useContext(CartContext )
+    const {item,clearCart} = useContext(CartContext )
+
+if (item.length === 0) {
+    return(
+        <>
+         <header >
+        <div className='continue-shopping'>
+        <img src="./images/arrow.png" alt="arrow" className='arrow-icon'/>
+        <h3>Continue Shopping</h3>
+        </div>
+
+        <div className='cart-icon'>
+            <img src="./images/cart.png" alt="cart" />
+            <p>0</p>
+        </div>
+    </header>
+
+    <section className='main-cart-section'>
+        <h1>Shopping Cart</h1>
+        <p>You have <span className='total-items'>0</span> Items in Shopping Cart</p>
+        </section>
+        </>
+    )
+}
 
   return (
     <>
@@ -43,6 +66,7 @@ const ContextCart = () => {
     <div className='cart-total'>
         <h3>Cart Total : <span>20000$</span></h3>
         <button>CheckOut</button>
+        <button className='clear-cart' onClick={clearCart}>Clear Cart</button>    
     </div>
     </section>
     </>

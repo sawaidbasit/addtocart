@@ -24,8 +24,14 @@ const removeItem = (id) =>{
     });
 }
 
+// Clear the Cart at one Click
+const clearCart = () =>{
+    return dispatch({
+        type : "CLEAR_CART"
+    })
+}
   return (
-    <CartContext.Provider value={{...state, removeItem}}>
+    <CartContext.Provider value={{...state, removeItem,clearCart}}>
         <ContextCart/>
    </CartContext.Provider>
     
