@@ -12,5 +12,18 @@ export const reducer = (state, action) =>{
         return {...state, item: []};
     }
 
+    if (action.type === "INCREAMENT") {
+        let updatedCart = state.item.map((curElem)=>{
+            if (curElem.id === action.payload) {
+                return{...curElem,
+                          quantity: curElem.quantity + 1   
+                }
+            }
+            return curElem;
+        })
+
+        return {...state, item:updatedCart}
+    }
+
     return state;
 };
